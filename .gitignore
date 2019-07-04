@@ -1,0 +1,25 @@
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Eclipse TestNG plugin
+test-output/
+
+# Intellij
+.idea/
+*.iml
+*.iws
+out/
+
+# Maven
+log/
+target/
