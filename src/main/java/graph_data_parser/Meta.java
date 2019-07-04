@@ -15,10 +15,9 @@ limitations under the License.
 
 package graph_data_parser;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import com.alibaba.fastjson.JSONObject;
 
-class Meta {
+public class Meta {
   private int node_type_num;
   private int edge_type_num;
   private int node_uint64_feature_num;
@@ -30,6 +29,17 @@ class Meta {
 
   public Meta() {
 
+  }
+
+  public Meta(JSONObject obj){
+    node_type_num = obj.getIntValue("node_type_num");
+    edge_type_num = obj.getIntValue("edge_type_num");
+    node_uint64_feature_num = obj.getIntValue("node_uint64_feature_num");
+    node_float_feature_num = obj.getIntValue("node_float_feature_num");
+    node_binary_feature_num = obj.getIntValue("node_binary_feature_num");
+    edge_uint64_feature_num = obj.getIntValue("edge_uint64_feature_num");
+    edge_float_feature_num = obj.getIntValue("edge_float_feature_num");
+    edge_binary_feature_num = obj.getIntValue("edge_binary_feature_num");
   }
 
   public int getNode_type_num() {

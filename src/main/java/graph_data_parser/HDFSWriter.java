@@ -26,72 +26,80 @@ import java.net.URISyntaxException;
 import java.util.List;
 
 public class HDFSWriter extends DataWriter {
-  private FileSystem fs;
-  private FSDataOutputStream writer;
+    private FileSystem fs;
+    private FSDataOutputStream writer;
 
-  public HDFSWriter(String hdfsAddr, String outputpath) throws URISyntaxException, IOException {
-    URI uri = new URI(hdfsAddr);
-    Configuration con = new Configuration();
-    con.set("fs.hdfs.impl", org.apache.hadoop.hdfs.DistributedFileSystem.class.getName());
-    fs = FileSystem.get(uri, con);
+    public HDFSWriter(String hdfsAddr, String outputpath) throws URISyntaxException, IOException {
+        URI uri = new URI(hdfsAddr);
+        Configuration con = new Configuration();
+        con.set("fs.hdfs.impl", org.apache.hadoop.hdfs.DistributedFileSystem.class.getName());
+        fs = FileSystem.get(uri, con);
 
-    Path dfs = new Path(outputpath);
-    writer = fs.create(dfs, true);
-  }
-
-  @Override
-  public void writeFloat(float value) throws IOException {
-    writer.write(Bytes.changeBytes(Bytes.floatToBytes(value)));
-  }
-
-  @Override
-  public void writeInt(int value) throws IOException {
-    writer.write(Bytes.changeBytes(Bytes.intToBytes(value)));
-  }
-
-  @Override
-  public void writeLong(long value) throws IOException {
-    writer.write(Bytes.changeBytes(Bytes.longToBytes(value)));
-  }
-
-  @Override
-  public void writeString(String value) throws IOException {
-    writer.write(value.getBytes());
-  }
-
-  public void writeFloatList(List<Float> values) throws IOException {
-    for (Float value : values) {
-      writeFloat(value);
+        Path dfs = new Path(outputpath);
+        writer = fs.create(dfs, true);
     }
-  }
 
-  public void writeLongList(List<Long> values) throws IOException {
-    for (Long value : values) {
-      writeLong(value);
+    @Override
+    public void writeFloat(float value) throws IOException {
+        writer.write(Bytes.changeBytes(Bytes.floatToBytes(value)));
     }
-  }
 
-  public void writeIntList(List<Integer> values) throws IOException {
-    for (Integer value : values) {
-      writeInt(value);
+    @Override
+    public void writeInt(int value) throws IOException {
+        writer.write(Bytes.changeBytes(Bytes.intToBytes(value)));
     }
-  }
 
-  public void writeStringList(List<String> values) throws IOException {
-    for (String value : values) {
-      writeString(value);
+    @Override
+    public void writeLong(long value) throws IOException {
+        writer.write(Bytes.changeBytes(Bytes.longToBytes(value)));
     }
-  }
 
-  public void writeBytes(byte[] bytes) throws IOException {
-    writer.write(bytes);
-  }
+    @Override
+    public void writeString(String value) throws IOException {
+        writer.write(value.getBytes());
+    }
 
-  public void flush() throws Exception {
-    writer.flush();
-  }
+    public void writeFloatList(List<Float> values) throws IOException {
+        for (Float value : values) {
+            writeFloat(value);
+        }
+    }
 
-  public void hflush() throws Exception {
-    writer.hflush();
-  }
+    public void writeLongList(List<Long> values) throws IOException {
+        for (Long value : values) {
+            writeLong(value);
+        }
+    }
+
+    public void writeIntList(List<Integer> values) throws IOException {
+        for (Integer value : values) {
+            writeInt(value);
+        }
+    }
+
+    public void writeStringList(List<String> values) throws IOException {
+        for (String value : values) {
+            writeString(value);
+        }
+    }
+
+    public void writeBytes(byte[] bytes) throws IOException {
+        writer.write(bytes);
+    }
+
+    public void flush() throws Exception {
+        writer.flush();
+    }
+
+    public void hflush() throws Exception {
+        writer.hflush();
+    }
+
+    public void close() throws Exception {
+        writer.close();
+    }
+
+    public FSDataOutputStream getWriter() {
+        return writer;
+    }
 }

@@ -18,74 +18,74 @@ package graph_data_parser;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-class Edge {
-  private long src_id;
-  private long dst_id;
-  private int edge_type;
-  private float weight;
-  private HashMap<Integer, ArrayList<Long>> uint64_feature;
-  private HashMap<Integer, ArrayList<Float>> float_feature;
-  private HashMap<Integer, String> binary_feature;
+public class Edge {
+    private long src_id;
+    private long dst_id;
+    private int edge_type;
+    private float weight;
+    private HashMap<Integer, ArrayList<Long>> uint64_feature;
+    private HashMap<Integer, ArrayList<Float>> float_feature;
+    private HashMap<Integer, String> binary_feature;
 
-  public Edge() {
-    uint64_feature = new HashMap<>();
-    float_feature = new HashMap<>();
-    binary_feature = new HashMap<>();
-  }
+    public Edge() {
+        uint64_feature = new HashMap<>();
+        float_feature = new HashMap<>();
+        binary_feature = new HashMap<>();
+    }
 
-  public long getSrc_id() {
-    return src_id;
-  }
+    public long getSrc_id() {
+        return src_id;
+    }
 
-  public void setSrc_id(long src_id) {
-    this.src_id = src_id;
-  }
+    public void setSrc_id(long src_id) {
+        this.src_id = src_id;
+    }
 
-  public long getDst_id() {
-    return dst_id;
-  }
+    public long getDst_id() {
+        return dst_id;
+    }
 
-  public void setDst_id(long dst_id) {
-    this.dst_id = dst_id;
-  }
+    public void setDst_id(long dst_id) {
+        this.dst_id = dst_id;
+    }
 
-  public int getEdge_type() {
-    return edge_type;
-  }
+    public int getEdge_type() {
+        return edge_type;
+    }
 
-  public void setEdge_type(int edge_type) {
-    this.edge_type = edge_type;
-  }
+    public void setEdge_type(int edge_type) {
+        this.edge_type = edge_type;
+    }
 
-  public float getWeight() {
-    return weight;
-  }
+    public float getWeight() {
+        return weight;
+    }
 
-  public void setWeight(float weight) {
-    this.weight = weight;
-  }
+    public void setWeight(float weight) {
+        this.weight = weight;
+    }
 
-  public HashMap<Integer, ArrayList<Long>> getUint64_feature() {
-    return uint64_feature;
-  }
+    public HashMap<Integer, ArrayList<Long>> getUint64_feature() {
+        return uint64_feature;
+    }
 
-  public void setUint64_feature(HashMap<Integer, ArrayList<Long>> uint64_feature) {
-    this.uint64_feature = uint64_feature;
-  }
+    public void setUint64_feature(HashMap<Integer, ArrayList<Long>> uint64_feature) {
+        this.uint64_feature = uint64_feature;
+    }
 
-  public HashMap<Integer, ArrayList<Float>> getFloat_feature() {
-    return float_feature;
-  }
+    public HashMap<Integer, ArrayList<Float>> getFloat_feature() {
+        return float_feature;
+    }
 
-  public void setFloat_feature(HashMap<Integer, ArrayList<Float>> float_feature) {
-    this.float_feature = float_feature;
-  }
+    public void setFloat_feature(HashMap<Integer, ArrayList<Float>> float_feature) {
+        this.float_feature = float_feature;
+    }
 
-  public HashMap<Integer, String> getBinary_feature() {
-    return binary_feature;
-  }
+    public HashMap<Integer, String> getBinary_feature() {
+        return binary_feature;
+    }
 
-  public void setBinary_feature(HashMap<Integer, String> binary_feature) {
-    this.binary_feature = binary_feature;
-  }
+    public void setBinary_feature(HashMap<Integer, String> binary_feature) {
+        this.binary_feature = binary_feature;
+    }
 }
